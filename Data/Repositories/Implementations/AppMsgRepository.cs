@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using System.IO;
 using System.Reflection;
 
-namespace OpenPersonalBudget.API.Data.Repositories
+namespace OpenPersonalBudget.API.Data.Repositories.Implementations
 {
     public class AppMsgRepository : IAppMsgRepository
     {

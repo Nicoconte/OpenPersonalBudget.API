@@ -3,5 +3,8 @@
   "InvalidCredential": "Invalid credentials. Please try again",
   "UserCreated": "User was created successfully",
   "CannotCreateUser": "Cannot create user",
-  "UserIsAlreadyTaken": "Username '{0}' is already taken. Please, try another one."
+  "UserIsAlreadyTaken": "Username '{0}' is already taken. Please, try another one.",
+  "InvalidUser": "Cannot validate user, try loggin again.",
+  "CannotCreateOp": "We cant proccess the operation, unexpected error. Please, try again.",
+  "OpCreatedSuccessfully": "Operation was proccessed successfully!"
 }

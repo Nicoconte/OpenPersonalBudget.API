@@ -1,9 +1,12 @@
 ﻿using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Helpers;
 using OpenPersonalBudget.API.Interfaces;
 using OpenPersonalBudget.API.Models;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+
 
 namespace OpenPersonalBudget.API.Services
 {
@@ -30,6 +33,18 @@ namespace OpenPersonalBudget.API.Services
             _unitOfWork.Commit();
 
             return user;
+        }
+
+        public async Task<UserModel> GetUser(object id)
+        {
+            return await _unitOfWork.UserRepository.GetById(id);
+        }
+
+        public async Task<UserModel> GetUserFromClaims(ClaimsPrincipal userClaims)
+        {
+            var id = (userClaims.Identity as ClaimsIdentity).FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            return await _unitOfWork.UserRepository.GetById(id);
         }
 
         public async Task<bool> VerifyIfUserExists(string username)

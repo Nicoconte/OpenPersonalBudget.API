@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Helpers;
 using OpenPersonalBudget.API.Interfaces;
 using OpenPersonalBudget.API.Models;

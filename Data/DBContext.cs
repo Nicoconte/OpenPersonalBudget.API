@@ -13,5 +13,6 @@ namespace OpenPersonalBudget.API.Data
 
         public DbSet<UserModel> Users { get; set; }
         public DbSet<AccountBalanceModel> AccountBalances { get; set; }
+        public DbSet<OperationModel> Operations { get; set; }
     }
 }

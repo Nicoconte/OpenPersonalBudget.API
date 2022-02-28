@@ -1,6 +1,8 @@
 ﻿using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Interfaces;
 using OpenPersonalBudget.API.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OpenPersonalBudget.API.Services
@@ -27,16 +29,20 @@ namespace OpenPersonalBudget.API.Services
             return account;
         }
 
-        public async Task<AccountBalanceModel> UpdateBalanceFromAccount(object id, float amount, string operationType)
+        public async Task<AccountBalanceModel> UpdateAmountFromUserAccount(UserModel user, OperationModel operation)
         {
-            var account = await _unitOfWork.AccountBalanceRepository.GetById(id);
-            
-            if (operationType == "MoneyIncome")
-                account.Amount += amount;
+            var account = (await _unitOfWork.AccountBalanceRepository.GetAll()).ToList().Find(a => a.User.Id == user.Id);
+
+            if (account == null) return null;
+
+            if (operation.OperationType == OperationTypeEnum.CashIncome)
+                account.Amount += operation.Amount;
             else
-                account.Amount -= amount;
-            
+                account.Amount -= operation.Amount;
+
             await _unitOfWork.AccountBalanceRepository.Update(account);
+
+            _unitOfWork.Commit();
 
             return account;
         }

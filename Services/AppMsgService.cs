@@ -1,4 +1,5 @@
 ﻿using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Interfaces;
 
 namespace OpenPersonalBudget.API.Services

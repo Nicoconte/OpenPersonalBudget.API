@@ -12,7 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OpenPersonalBudget.API.Data;
-using OpenPersonalBudget.API.Data.Repositories;
+using OpenPersonalBudget.API.Data.Repositories.Implementations;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Interfaces;
 using OpenPersonalBudget.API.Services;
 using System;
@@ -43,13 +44,34 @@ namespace OpenPersonalBudget.API
                     options.RegisterValidatorsFromAssemblyContaining<Startup>();
                 });
 
+            var securitySchema = new OpenApiSecurityScheme
+            {
+                Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.Http,
+                Scheme = "bearer",
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            }; 
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OpenPersonalBudget.API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", securitySchema);
+                
+                var securityRequirement = new OpenApiSecurityRequirement();
+                securityRequirement.Add(securitySchema, new[] { "Bearer" });
+                c.AddSecurityRequirement(securityRequirement);
             });
+
 
             services.AddDbContext<DBContext>(options =>
             {
+                options.UseLazyLoadingProxies();
                 options.UseSqlServer(Configuration.GetSection("TestConnectionString").Value);
             });
 
@@ -58,12 +80,14 @@ namespace OpenPersonalBudget.API
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IAppMsgRepository, AppMsgRepository>();
             services.AddTransient<IAccountBalanceRepository, AccountBalanceRepository>();
+            services.AddTransient<IOperationRepository, OperationRepository>();
 
             //Inject services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
             services.AddTransient<IAppMsgService, AppMsgService>();
             services.AddTransient<IAccountBalanceService, AccountBalanceService>();
+            services.AddTransient<IOperationService, OperationService>();
 
             //Set authorization and authentication
             services
@@ -71,6 +95,7 @@ namespace OpenPersonalBudget.API
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
+                    options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = false,

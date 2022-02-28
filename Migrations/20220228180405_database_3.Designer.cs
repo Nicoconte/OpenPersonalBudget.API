@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OpenPersonalBudget.API.Data;
 
 namespace OpenPersonalBudget.API.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20220228180405_database_3")]
+    partial class database_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,8 +50,11 @@ namespace OpenPersonalBudget.API.Migrations
                     b.Property<float>("Amount")
                         .HasColumnType("real");
 
-                    b.Property<int?>("Category")
+                    b.Property<int>("Category")
                         .HasColumnType("int");
+
+                    b.Property<string>("Concept")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -57,10 +62,10 @@ namespace OpenPersonalBudget.API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OperationType")
+                    b.Property<int>("OperationType")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PaymentType")
+                    b.Property<int>("PaymentType")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")

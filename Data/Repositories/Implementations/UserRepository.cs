@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OpenPersonalBudget.API.Data.Repositories.Interfaces;
 using OpenPersonalBudget.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace OpenPersonalBudget.API.Data.Repositories
+namespace OpenPersonalBudget.API.Data.Repositories.Implementations
 {
 
     public class UserRepository : IUserRepository
