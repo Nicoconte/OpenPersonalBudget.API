@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Reflection;
 
-namespace PersonalBudget.API.Data.Repositories
+namespace OpenPersonalBudget.API.Data.Repositories
 {
     public class AppMsgRepository : IAppMsgRepository
     {

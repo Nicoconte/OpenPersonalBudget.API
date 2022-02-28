@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 
-namespace PersonalBudget.API.Helpers
+namespace OpenPersonalBudget.API.Helpers
 {
     public class PasswordHelper
     {

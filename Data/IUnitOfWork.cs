@@ -1,6 +1,6 @@
-﻿using PersonalBudget.API.Data.Repositories;
+﻿using OpenPersonalBudget.API.Data.Repositories;
 
-namespace PersonalBudget.API.Data
+namespace OpenPersonalBudget.API.Data
 {
     public interface IUnitOfWork
     {

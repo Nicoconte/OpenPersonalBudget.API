@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using PersonalBudget.API.Contracts.Requests;
+using OpenPersonalBudget.API.Contracts.Requests;
 
-namespace PersonalBudget.API.Validators
+namespace OpenPersonalBudget.API.Validators
 {
     public class CreateUserValidator : AbstractValidator<CreateUserRequest>
     {

@@ -1,8 +1,8 @@
-﻿using PersonalBudget.API.Models;
+﻿using OpenPersonalBudget.API.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API.Data.Repositories
+namespace OpenPersonalBudget.API.Data.Repositories
 {
     public interface IUserRepository
     {

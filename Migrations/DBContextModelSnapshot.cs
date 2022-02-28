@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data;
 
-namespace PersonalBudget.API.Migrations
+namespace OpenPersonalBudget.API.Migrations
 {
     [DbContext(typeof(DBContext))]
     partial class DBContextModelSnapshot : ModelSnapshot

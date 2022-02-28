@@ -1,7 +1,7 @@
-﻿using PersonalBudget.API.Models;
+﻿using OpenPersonalBudget.API.Models;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API.Interfaces
+namespace OpenPersonalBudget.API.Interfaces
 {
     public interface IUserService
     {

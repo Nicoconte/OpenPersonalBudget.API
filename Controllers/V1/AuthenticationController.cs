@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PersonalBudget.API.Interfaces;
-using PersonalBudget.API.Contracts.Requests;
-using PersonalBudget.API.Contracts.Responses;
+using OpenPersonalBudget.API.Interfaces;
+using OpenPersonalBudget.API.Contracts.Requests;
+using OpenPersonalBudget.API.Contracts.Responses;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API.Controllers.V1
+namespace OpenPersonalBudget.API.Controllers.V1
 {
     [Route("api/v1/auth")]
     [ApiController]

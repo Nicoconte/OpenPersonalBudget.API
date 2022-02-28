@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PersonalBudget.API.Migrations
+namespace OpenPersonalBudget.API.Migrations
 {
     public partial class InitDatabase : Migration
     {

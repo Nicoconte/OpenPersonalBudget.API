@@ -1,11 +1,11 @@
-﻿using PersonalBudget.API.Data;
-using PersonalBudget.API.Helpers;
-using PersonalBudget.API.Interfaces;
-using PersonalBudget.API.Models;
+﻿using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Helpers;
+using OpenPersonalBudget.API.Interfaces;
+using OpenPersonalBudget.API.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API.Services
+namespace OpenPersonalBudget.API.Services
 {
     public class UserService : IUserService
     {

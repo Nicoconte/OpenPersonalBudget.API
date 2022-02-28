@@ -1,4 +1,4 @@
-﻿namespace PersonalBudget.API.Contracts.Requests
+﻿namespace OpenPersonalBudget.API.Contracts.Requests
 {
     public class LoginUserRequest
     {

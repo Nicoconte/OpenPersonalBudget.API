@@ -1,7 +1,7 @@
-﻿using PersonalBudget.API.Data.Repositories;
+﻿using OpenPersonalBudget.API.Data.Repositories;
 using System;
 
-namespace PersonalBudget.API.Data
+namespace OpenPersonalBudget.API.Data
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {

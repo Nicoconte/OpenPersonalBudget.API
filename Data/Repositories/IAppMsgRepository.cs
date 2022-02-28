@@ -1,4 +1,4 @@
-﻿namespace PersonalBudget.API.Data.Repositories
+﻿namespace OpenPersonalBudget.API.Data.Repositories
 {
     public interface IAppMsgRepository
     {

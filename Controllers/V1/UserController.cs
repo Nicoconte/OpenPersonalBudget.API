@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PersonalBudget.API.Contracts.Requests;
-using PersonalBudget.API.Contracts.Responses;
-using PersonalBudget.API.Interfaces;
-using PersonalBudget.API.Models;
+using OpenPersonalBudget.API.Contracts.Requests;
+using OpenPersonalBudget.API.Contracts.Responses;
+using OpenPersonalBudget.API.Interfaces;
+using OpenPersonalBudget.API.Models;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API.Controllers.V1
+namespace OpenPersonalBudget.API.Controllers.V1
 {
     [Route("api/v1/users")]
     [ApiController]

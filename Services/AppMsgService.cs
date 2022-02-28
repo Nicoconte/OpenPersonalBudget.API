@@ -1,7 +1,7 @@
-﻿using PersonalBudget.API.Data;
-using PersonalBudget.API.Interfaces;
+﻿using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Interfaces;
 
-namespace PersonalBudget.API.Services
+namespace OpenPersonalBudget.API.Services
 {
     public class AppMsgService : IAppMsgService
     {

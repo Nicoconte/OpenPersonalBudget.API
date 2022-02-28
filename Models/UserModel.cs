@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PersonalBudget.API.Models
+namespace OpenPersonalBudget.API.Models
 {
     public class UserModel
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PersonalBudget.API.Models;
+using OpenPersonalBudget.API.Models;
 
-namespace PersonalBudget.API.Data
+namespace OpenPersonalBudget.API.Data
 {
     public class DBContext : DbContext
     {

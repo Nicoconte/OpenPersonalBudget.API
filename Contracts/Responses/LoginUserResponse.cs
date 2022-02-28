@@ -1,4 +1,4 @@
-﻿namespace PersonalBudget.API.Contracts.Responses
+﻿namespace OpenPersonalBudget.API.Contracts.Responses
 {
     public class LoginUserResponse
     {

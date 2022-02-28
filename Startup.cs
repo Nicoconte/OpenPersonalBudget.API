@@ -11,17 +11,17 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using PersonalBudget.API.Data;
-using PersonalBudget.API.Data.Repositories;
-using PersonalBudget.API.Interfaces;
-using PersonalBudget.API.Services;
+using OpenPersonalBudget.API.Data;
+using OpenPersonalBudget.API.Data.Repositories;
+using OpenPersonalBudget.API.Interfaces;
+using OpenPersonalBudget.API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonalBudget.API
+namespace OpenPersonalBudget.API
 {
     public class Startup
     {
@@ -45,7 +45,7 @@ namespace PersonalBudget.API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonalBudget.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OpenPersonalBudget.API", Version = "v1" });
             });
 
             services.AddDbContext<DBContext>(options =>
