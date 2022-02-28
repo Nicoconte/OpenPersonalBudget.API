@@ -1,0 +1,7 @@
+{
+  "UserLoggedIn": "Access granted. Welcome {0}!",
+  "InvalidCredential": "Invalid credentials. Please try again",
+  "UserCreated": "User was created successfully",
+  "CannotCreateUser": "Cannot create user",
+  "UserIsAlreadyTaken": "Username '{0}' is already taken. Please, try another one."
+}
