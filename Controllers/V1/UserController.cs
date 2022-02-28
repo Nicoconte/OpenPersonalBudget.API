@@ -14,12 +14,14 @@ namespace OpenPersonalBudget.API.Controllers.V1
     {
 
         private readonly IUserService _userService;
+        private readonly IAccountBalanceService _accountBalanceService;
         private readonly IAppMsgService _appMsgService;
 
-        public UserController(IUserService userService, IAppMsgService appMsgService)
+        public UserController(IUserService userService, IAppMsgService appMsgService, IAccountBalanceService accountBalanceService)
         {
             _userService = userService;
             _appMsgService = appMsgService;
+            _accountBalanceService = accountBalanceService;
         }
 
         [HttpPost]
@@ -43,7 +45,13 @@ namespace OpenPersonalBudget.API.Controllers.V1
                 Email = userRequest.Email,
             });
 
-            if (user == null)
+            var account = _accountBalanceService.CreateAccountBalance(new AccountBalanceModel()
+            {
+                User = user,
+            });
+
+
+            if (user == null || account == null)
             {
                 return BadRequest(new CreateUserResponse()
                 {

@@ -57,11 +57,13 @@ namespace OpenPersonalBudget.API
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IAppMsgRepository, AppMsgRepository>();
+            services.AddTransient<IAccountBalanceRepository, AccountBalanceRepository>();
 
             //Inject services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
             services.AddTransient<IAppMsgService, AppMsgService>();
+            services.AddTransient<IAccountBalanceService, AccountBalanceService>();
 
             //Set authorization and authentication
             services

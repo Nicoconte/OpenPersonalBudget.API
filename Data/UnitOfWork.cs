@@ -9,18 +9,22 @@ namespace OpenPersonalBudget.API.Data
 
         public IAppMsgRepository AppMsgRepository { get; }
 
+        public IAccountBalanceRepository AccountBalanceRepository { get; }
+
         private DBContext _dbContext;
         private bool _disposed = false;
 
         public UnitOfWork(
             DBContext dbContext,
             IUserRepository userRepository,
-            IAppMsgRepository appMsgRepository
+            IAppMsgRepository appMsgRepository,
+            IAccountBalanceRepository accountBalanceRepository
         )
         {
             _dbContext = dbContext;
             UserRepository = userRepository;
             AppMsgRepository = appMsgRepository;
+            AccountBalanceRepository = accountBalanceRepository;
         }
 
         public void Commit()
