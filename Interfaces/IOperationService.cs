@@ -10,6 +10,7 @@ namespace OpenPersonalBudget.API.Interfaces
         public Task<OperationModel> UpdateOperation(OperationModel operation);
         public Task<bool> DeleteOperation(object id);
         public Task<List<OperationModel>> GetAllOperations();
+        public Task<List<OperationModel>> GetAllUserOperations(UserModel user);
         public Task<OperationModel> GetOperation(object id);
         public Task<bool> Exists(object id);
     }

@@ -6,5 +6,9 @@
   "UserIsAlreadyTaken": "Username '{0}' is already taken. Please, try another one.",
   "InvalidUser": "Cannot validate user, try loggin again.",
   "CannotCreateOp": "We cant proccess the operation, unexpected error. Please, try again.",
-  "OpCreatedSuccessfully": "Operation was proccessed successfully!"
+  "OpCreatedSuccessfully": "Operation was proccessed successfully!",
+  "InvalidId": "Id doesnt match with the resource requested",
+  "OperationNotFound": "Operation not found. Maybe it was deleted, refresh the site",
+  "OpDeletedSuccessfully": "Operation was deleted!",
+  "CannotDeleteOp": "We cant delete the operation. Maybe it doesnt exist."
 }

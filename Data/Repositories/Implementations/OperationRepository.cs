@@ -43,7 +43,7 @@ namespace OpenPersonalBudget.API.Data.Repositories.Implementations
         {
             var currentOp = await _dbContext.Operations.FindAsync(operation.Id);
 
-            currentOp = operation;
+            currentOp = operation;    
 
             _dbContext.Operations.Update(currentOp);
 

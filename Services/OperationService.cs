@@ -35,7 +35,11 @@ namespace OpenPersonalBudget.API.Services
 
         public async Task<bool> DeleteOperation(object id)
         {
-            return await _unitOfWork.OperationRepository.Delete(id);            
+            var deleted = await _unitOfWork.OperationRepository.Delete(id);
+
+            _unitOfWork.Commit();
+
+            return deleted;
         }
 
         public async Task<bool> Exists(object id)
@@ -48,6 +52,11 @@ namespace OpenPersonalBudget.API.Services
             return (await _unitOfWork.OperationRepository.GetAll()).ToList();
         }
 
+        public async Task<List<OperationModel>> GetAllUserOperations(UserModel user)
+        {
+            return (await _unitOfWork.OperationRepository.GetAll()).ToList().Where(x => x.User.Id == user.Id).ToList();    
+        }
+
         public async Task<OperationModel> GetOperation(object id)
         {
             return await _unitOfWork.OperationRepository.GetById(id);
@@ -57,7 +66,15 @@ namespace OpenPersonalBudget.API.Services
         {
             if (operation == null) return null;
 
-            var op = await _unitOfWork.OperationRepository.Update(operation);
+            var newOp = await _unitOfWork.OperationRepository.GetById(operation.Id);
+
+            newOp.Amount = operation.Amount;
+            newOp.Description = operation.Description;
+            newOp.Category = operation.Category;
+            newOp.PaymentType = operation.PaymentType;
+            newOp.OperationType = operation.OperationType;
+
+            var op = await _unitOfWork.OperationRepository.Update(newOp);
 
             if (op != null)
             {
