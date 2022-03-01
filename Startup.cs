@@ -122,6 +122,11 @@ namespace OpenPersonalBudget.API
 
             app.UseRouting();
 
+            app.UseCors(options =>
+            {
+                options.WithOrigins("http://localhost:4200").AllowAnyMethod();
+            });
+
             app.UseAuthentication();
 
             app.UseAuthorization();
