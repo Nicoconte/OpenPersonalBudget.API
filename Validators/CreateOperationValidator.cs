@@ -12,7 +12,7 @@ namespace OpenPersonalBudget.API.Validators
                 .NotEmpty()
                 .NotNull()
                 .WithMessage("Amount cannot be empty")
-                .LessThan(0)
+                .Must(a => a > 0.0f)
                 .WithMessage("Amount cannot be negative")
                 .Must(f => f.GetType() == typeof(float))
                 .WithMessage("Amount should be float");
