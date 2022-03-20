@@ -5,7 +5,7 @@ namespace OpenPersonalBudget.API.Interfaces
 {
     public interface IAuthenticationService
     {
-        public string BuildToken(UserModel user);
+        private string _BuildToken(UserModel user);
 
         public Task<string> AuthenticateUser(string username, string password);
     }
