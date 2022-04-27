@@ -35,12 +35,12 @@ namespace OpenPersonalBudget.API.Services
 
             if (user == null) return string.Empty;
 
-            var token = _BuildToken(user);
+            var token = BuildToken(user);
 
             return token;
         }
 
-        private string _BuildToken(UserModel user)
+        public string BuildToken(UserModel user)
         {
             var secretKey = _configuration.GetSection("Jwt:Key").Value;
             var keyAsBytes = Encoding.ASCII.GetBytes(secretKey);
