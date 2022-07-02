@@ -70,7 +70,12 @@ namespace OpenPersonalBudget.API
             });
 
 
-            services.AddSingleton<EasyCrud>();
+            services.AddSingleton(s =>
+            {
+                var easyCrud = new EasyCrud();
+                easyCrud.SetSqlConnection(Configuration.GetSection("TestConnectionString").Value);
+                return easyCrud;
+            });
 
             //Inject repositoies
             services.AddTransient<IUnitOfWork, UnitOfWork>();

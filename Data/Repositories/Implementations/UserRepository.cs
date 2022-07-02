@@ -14,14 +14,10 @@ namespace OpenPersonalBudget.API.Data.Repositories.Implementations
     public class UserRepository : IUserRepository
     {
         private readonly EasyCrud _easyCrud;
-        private readonly IConfiguration _configuration;
 
-        public UserRepository(EasyCrud easyCrud, IConfiguration configuration)
+        public UserRepository(EasyCrud easyCrud)
         {
             _easyCrud = easyCrud;
-            _configuration = configuration;
-
-            _easyCrud.SetSqlConnection(_configuration.GetSection("TestConnectionString").Value);
         }
 
         public async Task<bool> Insert(UserModel user)
