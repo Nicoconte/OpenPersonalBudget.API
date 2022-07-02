@@ -4,6 +4,7 @@ using OpenPersonalBudget.API.Contracts.Requests;
 using OpenPersonalBudget.API.Contracts.Responses;
 using OpenPersonalBudget.API.Interfaces;
 using OpenPersonalBudget.API.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace OpenPersonalBudget.API.Controllers.V1
@@ -38,16 +39,21 @@ namespace OpenPersonalBudget.API.Controllers.V1
                 });
             }
 
-            var user = _userService.CreateUser(new UserModel()
+            var user = await _userService.CreateUser(new UserModel()
             {
+                Id = Guid.NewGuid().ToString(),
                 Username = userRequest.Username,
                 Password = userRequest.Password,
                 Email = userRequest.Email,
+                CreatedAt = DateTime.Now,
             });
 
-            var account = _accountBalanceService.CreateAccountBalance(new AccountBalanceModel()
+            var account = await _accountBalanceService.CreateAccountBalance(new AccountBalanceModel()
             {
-                User = user,
+                Id = Guid.NewGuid().ToString(),
+                User = user.Id,
+                Amount = 0.0f,
+                CreatedAt = DateTime.Now,
             });
 
 

@@ -21,16 +21,14 @@ namespace OpenPersonalBudget.API.Services
         }
 
 
-        public UserModel CreateUser(UserModel user)
+        public async Task<UserModel> CreateUser(UserModel user)
         {
 
             if (user == null) return null;
 
             user.Password = PasswordHelper.Hash(user.Password);
 
-            _unitOfWork.UserRepository.Insert(user);
-
-            _unitOfWork.Commit();
+            await _unitOfWork.UserRepository.Insert(user);
 
             return user;
         }

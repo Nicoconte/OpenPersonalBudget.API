@@ -1,18 +1,22 @@
-﻿using System;
+﻿using EasyCrudNET.Mappers.DataAnnotation;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OpenPersonalBudget.API.Models
 {
     public class OperationModel
     {
-        [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public virtual UserModel User { get; set; }
+
+        public string Id { get; set; }
+        
+        [ColumnMapper("UserId")]
+        public virtual string User { get; set; }
+        
         public string Description { get; set; }
         public float Amount { get; set; }
-        public Nullable<OperationTypeEnum> OperationType { get; set; }
-        public Nullable<OperationPaymentTypeEnum> PaymentType { get; set; }
-        public Nullable<OperationCategoryEnum> Category { get; set; }
+        public OperationTypeEnum OperationType { get; set; }
+        public OperationPaymentTypeEnum PaymentType { get; set; }
+        public OperationCategoryEnum Category { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 

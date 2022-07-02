@@ -1,3 +1,4 @@
+using EasyCrudNET;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -69,11 +70,7 @@ namespace OpenPersonalBudget.API
             });
 
 
-            services.AddDbContext<DBContext>(options =>
-            {
-                options.UseLazyLoadingProxies();
-                options.UseSqlServer(Configuration.GetSection("TestConnectionString").Value);
-            });
+            services.AddSingleton<EasyCrud>();
 
             //Inject repositoies
             services.AddTransient<IUnitOfWork, UnitOfWork>();

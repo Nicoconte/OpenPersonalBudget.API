@@ -17,21 +17,19 @@ namespace OpenPersonalBudget.API.Services
             _unitOfWork = unitOfWork;
         }
 
-        public AccountBalanceModel CreateAccountBalance(AccountBalanceModel account)
+        public async Task<AccountBalanceModel> CreateAccountBalance(AccountBalanceModel account)
         {
 
             if (account == null) return null;
 
-            _unitOfWork.AccountBalanceRepository.Insert(account);
-
-            _unitOfWork.Commit();
+            await _unitOfWork.AccountBalanceRepository.Insert(account);
 
             return account;
         }
 
         public async Task<AccountBalanceModel> UpdateAmountFromUserAccount(UserModel user, OperationModel operation)
         {
-            var account = (await _unitOfWork.AccountBalanceRepository.GetAll()).ToList().Find(a => a.User.Id == user.Id);
+            var account = (await _unitOfWork.AccountBalanceRepository.GetAll()).ToList().Find(a => a.User == user.Id);
 
             if (account == null) return null;
 
@@ -41,8 +39,6 @@ namespace OpenPersonalBudget.API.Services
                 account.Amount -= operation.Amount;
 
             await _unitOfWork.AccountBalanceRepository.Update(account);
-
-            _unitOfWork.Commit();
 
             return account;
         }

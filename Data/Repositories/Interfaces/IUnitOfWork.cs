@@ -9,7 +9,5 @@ namespace OpenPersonalBudget.API.Data.Repositories.Interfaces
         public IAppMsgRepository AppMsgRepository { get; }
         public IAccountBalanceRepository AccountBalanceRepository { get; }
         public IOperationRepository OperationRepository { get; }
-
-        public void Commit();
     }
 }

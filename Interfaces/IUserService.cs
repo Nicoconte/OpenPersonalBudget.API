@@ -6,7 +6,7 @@ namespace OpenPersonalBudget.API.Interfaces
 {
     public interface IUserService
     {
-        public UserModel CreateUser(UserModel user);
+        public Task<UserModel> CreateUser(UserModel user);
         public Task<bool> VerifyIfUserExists(string username);
         public Task<UserModel> GetUser(object id);
         public Task<UserModel> GetUserFromClaims(ClaimsPrincipal userClaims);

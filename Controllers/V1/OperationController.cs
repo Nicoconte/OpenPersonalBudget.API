@@ -55,7 +55,8 @@ namespace OpenPersonalBudget.API.Controllers.V1
 
             var operation = new OperationModel()
             {
-                User = user,
+                Id = Guid.NewGuid().ToString(),
+                User = user.Id,
                 Description = operationRequest.Description,
                 Amount = operationRequest.Amount,
                 OperationType = EnumHelper.GetEnumFromString<OperationTypeEnum>(operationRequest.OperationType),

@@ -1,15 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using System;
+using EasyCrudNET.Mappers.DataAnnotation;
 
 namespace OpenPersonalBudget.API.Models
 {
     public class AccountBalanceModel
     {
-        [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public virtual UserModel User { get; set; }
+        public string Id { get; set; }     
+        
+        [ColumnMapper("UserId")]
+        public string User { get; set; }
+        
         public float Amount { get; set; } = 0.0f;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
     }
 }
